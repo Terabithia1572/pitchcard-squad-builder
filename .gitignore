@@ -1,0 +1,44 @@
+# Build & Output Directories
+**/bin/
+**/obj/
+**/publish/
+**/out/
+
+# Visual Studio & IDE files
+.vs/
+*.user
+*.userosv
+*.suo
+*.sln.docstates
+*.userprefs
+*.vspscc
+*.vssscc
+
+# User Secrets & Publish Settings
+secrets.json
+*.pubxml
+*.pubxml.user
+*.publishsettings
+
+# Database Files & Backups
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.db.bak
+
+# App_Data Generated & Runtime Data
+**/App_Data/fivekor.db
+**/App_Data/keys/
+**/App_Data/media/*
+!**/App_Data/media/.gitkeep
+**/App_Data/*.bak
+**/App_Data/*-shm
+**/App_Data/*-wal
+
+# Environment & Temp Files
+.env
+.env.*
+*.log
+*.tmp

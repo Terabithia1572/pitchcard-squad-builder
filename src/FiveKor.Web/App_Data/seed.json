@@ -1,0 +1,439 @@
+{
+  "players": [
+    {
+      "id": "p0",
+      "name": "Muhsin",
+      "rating": 83,
+      "position": "ST",
+      "change": -7,
+      "team": "blue",
+      "order": 0,
+      "photo": "/assets/portrait-0.png",
+      "tags": [
+        "Hızlı Kanat"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p1",
+      "name": "Ali Akman",
+      "rating": 95,
+      "position": "ST",
+      "change": 5,
+      "team": "blue",
+      "order": 1,
+      "photo": "/assets/portrait-1.png",
+      "tags": [
+        "Golcü"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p2",
+      "name": "Burak",
+      "rating": 95,
+      "position": "ST",
+      "change": 5,
+      "team": "blue",
+      "order": 2,
+      "photo": "/assets/portrait-2.png",
+      "tags": [
+        "Keskin Nişancı"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p3",
+      "name": "Ali Ozan",
+      "rating": 95,
+      "position": "CB",
+      "change": 0,
+      "team": "blue",
+      "order": 3,
+      "photo": "/assets/portrait-3.png",
+      "tags": [
+        "Savunma Lideri"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p4",
+      "name": "Samet",
+      "rating": 95,
+      "position": "CB",
+      "change": 5,
+      "team": "blue",
+      "order": 4,
+      "photo": "/assets/portrait-4.png",
+      "tags": [
+        "Duvar"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p5",
+      "name": "Bilal",
+      "rating": 93,
+      "position": "CB",
+      "change": 3,
+      "team": "blue",
+      "order": 5,
+      "photo": "/assets/portrait-5.png",
+      "tags": [
+        "Savaşçı"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p6",
+      "name": "Atilla",
+      "rating": 96,
+      "position": "GK",
+      "change": 6,
+      "team": "blue",
+      "order": 6,
+      "photo": "/assets/portrait-6.png",
+      "tags": [
+        "Refleks Kralı"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p7",
+      "name": "Ada",
+      "rating": 95,
+      "position": "ST",
+      "change": 5,
+      "team": "red",
+      "order": 0,
+      "photo": "/assets/portrait-7.png",
+      "tags": [
+        "Teknik Adam"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p8",
+      "name": "Mertcan",
+      "rating": 85,
+      "position": "ST",
+      "change": 35,
+      "team": "red",
+      "order": 1,
+      "photo": "/assets/portrait-8.png",
+      "tags": [
+        "Gol Tehdidi"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p9",
+      "name": "Yunus",
+      "rating": 97,
+      "position": "ST",
+      "change": 7,
+      "team": "red",
+      "order": 2,
+      "photo": "/assets/portrait-9.png",
+      "tags": [
+        "Füze"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p10",
+      "name": "Ali",
+      "rating": 95,
+      "position": "CB",
+      "change": 5,
+      "team": "red",
+      "order": 3,
+      "photo": "/assets/portrait-10.png",
+      "tags": [
+        "Akıl Oyuncusu"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p11",
+      "name": "Arda",
+      "rating": 95,
+      "position": "CB",
+      "change": 5,
+      "team": "red",
+      "order": 4,
+      "photo": "/assets/portrait-11.png",
+      "tags": [
+        "Disiplinli"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p12",
+      "name": "Bülent",
+      "rating": 95,
+      "position": "CB",
+      "change": 5,
+      "team": "red",
+      "order": 5,
+      "photo": "/assets/portrait-12.png",
+      "tags": [
+        "Kesici"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    },
+    {
+      "id": "p13",
+      "name": "Melih",
+      "rating": 96,
+      "position": "GK",
+      "change": 6,
+      "team": "red",
+      "order": 6,
+      "photo": "/assets/portrait-13.png",
+      "tags": [
+        "Kale Duvarı"
+      ],
+      "stats": [
+        85,
+        88,
+        90,
+        86,
+        82,
+        85
+      ],
+      "visible": true
+    }
+  ],
+  "settings": {
+    "league": "5 KOR",
+    "title": "HALI SAHA LİGİ",
+    "season": "SEZON 1 ★ HAFTA 4",
+    "matchday": "MATCHDAY",
+    "venue": "ENDÜSTRİ HALI SAHA",
+    "time": "21.00 - 22.00",
+    "surface": "HALI SAHA",
+    "format": "7’YE 7",
+    "duration": "2 × 30 DAKİKA",
+    "matchType": "DOSTLUK MAÇI",
+    "blueName": "MAVİ TAKIM",
+    "redName": "KIRMIZI TAKIM",
+    "blueFormation": "3-3-1",
+    "redFormation": "3-3-1",
+    "bluePower": 647,
+    "redPower": 663,
+    "bluePossession": 47,
+    "bluePrediction": 3.1,
+    "redPrediction": 4.6,
+    "blueScore": 3,
+    "redScore": 6,
+    "result": "KIRMIZI TAKIM KAZANDI!",
+    "blueForm": [
+      "G",
+      "M",
+      "G",
+      "M",
+      "M"
+    ],
+    "redForm": [
+      "G",
+      "G",
+      "M",
+      "G",
+      "G"
+    ],
+    "blueTrend": [
+      30,
+      38,
+      57,
+      54,
+      79,
+      77,
+      95
+    ],
+    "redTrend": [
+      10,
+      18,
+      29,
+      28,
+      46,
+      46,
+      60
+    ],
+    "mvpId": "p9",
+    "mvpGoals": 2,
+    "mvpAssists": 1,
+    "mvpNote": "Maça Damga Vurdu",
+    "quote": "Kazanan değil,\nSahada Terini Bırakan\nEFSANEDİR!",
+    "footerName": "5 KOR HALI SAHA GRUBU",
+    "footerSlogan": "Futbolun Gerçek Keyfi...!",
+    "values": [
+      "FAIR PLAY",
+      "EĞLENCE",
+      "DOSTLUK",
+      "REKABET",
+      "SAYGI"
+    ],
+    "roles": [
+      "Duvar",
+      "Füze",
+      "Keskin Nişancı",
+      "Sihirbaz",
+      "Çekiç Ayak",
+      "Motor",
+      "Duvar Kaleci",
+      "Beyin",
+      "Kasap",
+      "Kondisyon Yok",
+      "Hızlı Kanat",
+      "Golcü",
+      "Savunma Lideri",
+      "Savaşçı",
+      "Refleks Kralı",
+      "Teknik Adam",
+      "Gol Tehdidi",
+      "Akıl Oyuncusu",
+      "Disiplinli",
+      "Kesici",
+      "Kale Duvarı"
+    ],
+    "statLabels": [
+      "HIZ",
+      "PAS",
+      "DRİ",
+      "DEF",
+      "FİZ",
+      "ŞUT"
+    ]
+  },
+  "stars": [
+    {
+      "id": "goal",
+      "title": "HAFTANIN GOLÜ",
+      "playerId": "p6",
+      "label": "ÖLÜMCÜL VURUŞ",
+      "video": "",
+      "poster": ""
+    },
+    {
+      "id": "assist",
+      "title": "HAFTANIN PASI",
+      "playerId": "p9",
+      "label": "OYUN KURUCU",
+      "video": "",
+      "poster": ""
+    },
+    {
+      "id": "save",
+      "title": "HAFTANIN KURTARIŞI",
+      "playerId": "p13",
+      "label": "KALECİ ŞOVU",
+      "video": "",
+      "poster": ""
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+import {templateCard} from './card-studio.js';
+import originals from './originals.js';
+export const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let csrfToken='';
+export async function api(path,options={}){const headers=new Headers(options.headers||{});if(csrfToken&&options.method&&!['GET','HEAD'].includes(options.method.toUpperCase()))headers.set('X-CSRF-TOKEN',csrfToken);const r=await fetch(path,{credentials:'same-origin',...options,headers});let data;try{data=await r.json()}catch{throw Error('Sunucu yanıtı okunamadı. Lütfen tekrar dene.')}if(!r.ok)throw Error(data.error||'İşlem tamamlanamadı.');if(data.csrfToken)csrfToken=data.csrfToken;return data}
+export function originalCard(p){const o=originals.find(x=>x.id===p.id);return o&&(!p.photoScale||p.photoScale===100)&&!p.photoX&&!p.photoY&&p.photoFit!=='contain'&&p.shine!==false&&(!p.cardDesign||p.cardDesign==='original')&&['name','rating','position','change','team','photo'].every(k=>p[k]===o[k])&&JSON.stringify(p.tags)===JSON.stringify(o.tags)&&JSON.stringify(p.stats)===JSON.stringify(o.stats)}
+export function card(p,labels=['HIZ','PAS','DRİ','DEF','FİZ','ŞUT']){
+ if(p.cardDesign==='template'){const rendered=templateCard(p,labels);if(rendered)return rendered;}
+ if(originalCard(p))return `<div class="original-card"><img src="/assets/player-${Number(p.id.slice(1))}.png" alt="${esc(p.name)} · ${p.rating} OVR" draggable="false"></div>`;
+ const change=p.change===0?'＝':p.change>0?'+'+p.change:String(p.change);
+ let photo=p.photo;if(/^\/assets\/portrait-\d+\.png$/.test(photo))photo=photo.replace('portrait-','face-');
+ const design=['gold','ice','blue','red'].includes(p.cardDesign)?p.cardDesign:p.team==='red'?'red':'blue';
+ const scale=Number(p.photoScale)||100,x=Number(p.photoX)||0,y=Number(p.photoY)||0;
+ return `<div class="live-card shield-card ${esc(p.team)} design-${design} ${p.shine===false?'':'card-shine'}"><div class="shield-inner"></div><div class="card-top"><strong>${esc(p.rating)}<small>${esc(p.position)}</small></strong><b class="change ${p.change<0?'negative':p.change===0?'neutral':''}">${change}</b></div><div class="portrait">${photo?`<img src="${esc(photo)}" alt="" draggable="false" style="transform:translate(${x}%,${y}%) scale(${scale/100});object-fit:${p.photoFit==='contain'?'contain':'cover'}">`:'<span class="photo-empty">⚽</span>'}</div><h3>${esc(p.name)}</h3><div class="card-stats">${p.stats.map((n,i)=>`<span><small>${esc(labels[i])}</small><b>${esc(n)}</b></span>`).join('')}</div><div class="card-tags">${p.tags.map(x=>`<span>${esc(x)}</span>`).join('')||'OYUNCU'}</div></div>`
+}
+export function upload(file,onProgress){return new Promise((resolve,reject)=>{const xhr=new XMLHttpRequest();xhr.open('POST','/api/upload?name='+encodeURIComponent(file.name));xhr.setRequestHeader('Content-Type',file.type);if(csrfToken)xhr.setRequestHeader('X-CSRF-TOKEN',csrfToken);xhr.upload.onprogress=e=>onProgress?.(e.lengthComputable?Math.round(e.loaded/e.total*100):0);xhr.onload=()=>{try{const d=JSON.parse(xhr.responseText);if(xhr.status<200||xhr.status>=300)reject(Error(d.error||'Yükleme başarısız.'));else resolve(d)}catch{reject(Error('Dosya yüklenemedi.'))}};xhr.onerror=()=>reject(Error('Bağlantı kesildi. Dosyayı tekrar yükleyebilirsin.'));xhr.send(file)})}
