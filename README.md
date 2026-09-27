@@ -1,25 +1,31 @@
-# 👑 5 Kor Halı Saha Ligi · ASP.NET Core & FIFA Kart Yönetim Sistemi
+# 👑 PitchCard Squad Builder · ASP.NET Core & FIFA Kart Yönetim Sistemi
 
-> **TR**: Bu proje, 5 Kor Halı Saha Ligi için FIFA tarzı oyuncu kartları, kadro kurucu, maç ve takım istatistikleri ile haftanın öne çıkan video içeriklerini yöneten ASP.NET Core tabanlı bir web uygulamasıdır.  
-> **EN**: This project is an ASP.NET Core web application built for the 5 Kor Amateur Football League featuring FIFA-style player cards, a squad builder, match & team analytics, and weekly video highlights management.
+[![.NET 10.0](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)](https://dotnet.microsoft.com/)
+[![SQLite](https://img.shields.io/badge/Database-SQLite-003B57?logo=sqlite)](https://www.sqlite.org/)
+[![EF Core](https://img.shields.io/badge/ORM-EF%20Core%2010.0-512BD4)](https://docs.microsoft.com/ef/core/)
+[![GitHub Repository](https://img.shields.io/badge/GitHub-pitchcard--squad--builder-181717?logo=github)](https://github.com/Terabithia1572/pitchcard-squad-builder)
+
+> **TR**: Bu proje, FIFA/EA FC tarzı oyuncu kartları, sürükle-bırak kadro kurucu, maç ve takım istatistikleri ile haftanın öne çıkan video içeriklerini yöneten ASP.NET Core tabanlı **PitchCard Squad Builder** web uygulamasıdır.  
+> **EN**: **PitchCard Squad Builder** is an ASP.NET Core web application featuring FIFA-style player cards, an interactive squad builder, match & team analytics, and weekly video highlights management.
 
 ---
 
 ## 🇹🇷 TÜRKÇE DOKÜMANTASYON
 
 ### 1. Proje Amacı ve Özellikleri
-5 Kor Halı Saha Ligi uygulaması, halı saha maç günlerinin dijital ve interaktif ortama taşınmasını sağlar.
+**PitchCard Squad Builder**, halı saha ve amatör lig maç günlerinin dijital ve interaktif ortama taşınmasını sağlar.
 
-- **FIFA Tarzı Oyuncu Kartları**: Oyuncuların mevki, OVR, reyting değişimi, istatistikleri ve özel rol etiketleri ile FIFA kart tasarımında sergilenmesi.
+- **FIFA Tarzı Oyuncu Kartları**: Oyuncuların mevki, OVR, reyting değişimi, istatistikleri ve özel rol etiketleri ile FIFA/EA FC kart tasarımında sergilenmesi.
 - **Kırmızı & Mavi Takım Kadroları ve Dizilişleri**: Saha üzerinde dinamik oyuncu yerleşimi (3-3-1 vb.), kadro özetleri ve yedek oyuncu listesi.
-- **Gelişmiş Yönetim Paneli (`/admin`)**:
-  - **Oyuncu Kartları Yönetimi**: Oyuncu ekleme, istatistik/mevki düzenleme ve hazır/özel kart şablonu seçimi.
+- **Gelişmiş Kart Stüdyosu & Yönetim Paneli (`/admin`)**:
+  - **Canlı Önizlemeli Kart Tasarımcısı**: EA FC hazır kart dokuları (Team of the Week, Flashback, Hall of FUT vb.) veya özel şablonlarla canlı kart stüdyosu.
+  - **Oyuncu Özellikleri & Rol Rozetleri Editörü**: Oyuncu istatistikleri (HIZ, ŞUT, PAS, DRİ, DEF, FİZ), ülke/kulüp görselleri ve özel rozet ayarları.
   - **Kadro Kurucu**: Sürükle-bırak mantığıyla saha üzerine oyuncu yerleştirme ve diziliş yönetimi.
   - **Maç & Takımlar**: Saha adı, maç saati, maç türü, skorlar ve lig bilgilerini güncelleme.
   - **Haftanın Yıldızları**: Haftanın Golü, Haftanın Pası ve Haftanın Kurtarışı için MP4/WebM video ve kapak görseli yükleme.
   - **İstatistikler**: Toplam güç (OVR), topla oynama oranları, gol tahminleri, form grafikleri ve son 5 maç performansları.
   - **Etiketler & Metinler**: Oyuncu rol rozetleri, kart özellik başlıkları ve slogan özelleştirme.
-- **FIFARosters Şablon Galerisi Entegrasyonu**: Çevrimiçi galeriden kart şablonlarını tarama ve projeye aktarma (`GalleryService`).
+- **FIFARosters Şablon Galerisi Entegrasyonu**: Çevrimiçi galeriden 80+'den fazla hazır kart şablonunu tarama ve projeye aktarma (`GalleryService`).
 - **Özel Medya Depolama**: Yüklenen görseller ve videolar için HTTP Range destekli medya sunumu.
 
 ---
@@ -40,8 +46,8 @@
 ### 3. Klasör Yapısı
 
 ```
-FiveKorDotNet/
-├── screenshots/               # Ekran görüntüleri (Uygulama ve Yönetim Paneli)
+pitchcard-squad-builder/
+├── screenshots/               # Ekran görüntüleri (Uygulama, Kart Stüdyosu ve Yönetim Paneli)
 ├── tools/                     # Yardımcı betikler (import_state.py vb.)
 ├── src/
 │   └── FiveKor.Web/           # Ana ASP.NET Core Projesi
@@ -65,6 +71,12 @@ FiveKorDotNet/
 
 #### Ön Koşullar
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download) veya .NET 10 destekli Visual Studio 2022+ / JetBrains Rider.
+
+#### Repository Klonlama
+```bash
+git clone https://github.com/Terabithia1572/pitchcard-squad-builder.git
+cd pitchcard-squad-builder
+```
 
 #### Visual Studio ile Çalıştırma
 1. `src/FiveKor.Web/FiveKor.Web.csproj` dosyasını Visual Studio ile açın.
@@ -96,7 +108,7 @@ FiveKorDotNet/
 ### 5. Veritabanı, Yönetici Hesabı ve Medya Yönetimi
 
 - **Veritabanı Başlatma**: İlk çalıştırmada `EF Core EnsureCreatedAsync()` veritabanı tablosunu (`App_Data/fivekor.db`) otomatik oluşturur. Veritabanı boşsa `App_Data/seed.json` içerisindeki başlangıç kadrosu ve lig ayarları otomatik yüklenir.
-- **Yönetici Hesabı Oluşturma**: İlk açılışta `Admin__Email` and `Admin__Password` (en az 12 karakter) yapılandırması okunur; şifre `IPasswordHasher` ile hash'lenerek `admin_accounts` tablosuna kaydedilir. Sonraki çalıştırmalarda bu ortam değişkenlerine tekrar gerek kalmaz.
+- **Yönetici Hesabı Oluşturma**: İlk açılışta `Admin__Email` ve `Admin__Password` (en az 12 karakter) yapılandırması okunur; şifre `IPasswordHasher` ile hash'lenerek `admin_accounts` tablosuna kaydedilir. Sonraki çalıştırmalarda bu ortam değişkenlerine tekrar gerek kalmaz.
 - **Yüklenen Medya Dosyaları**: Kullanıcıların yüklediği oyuncu kart görselleri ve videolar `App_Data/media/` klasöründe benzersiz UUID isimleriyle saklanır.
 
 ---
@@ -111,11 +123,14 @@ FiveKorDotNet/
 
 ### 7. Ekran Görüntüleri
 
-Aşağıda `screenshots/` klasöründe yer alan uygulama ve yönetim paneli görselleri listelenmiştir:
+Aşağıda `screenshots/` klasöründe yer alan uygulama, kart stüdyosu ve yönetim paneli görselleri listelenmiştir:
 
 | Görsel | Açıklama |
 | --- | --- |
 | ![Matchday ve Kadrolar](screenshots/squad4.png) | **Ana Sayfa - Matchday & Takım Kadroları**: Mavi ve Kırmızı Takım oyuncu kartları, dizilişler ve maç bilgileri. |
+| ![Kart Tasarımcısı Canlı Önizleme](screenshots/create_card.png) | **Yönetim Paneli - Kart Stüdyosu (Canlı Önizleme)**: Kart şablonu seçimi, canlı önizleme ve PNG indirme. |
+| ![Kart Özellikleri Editörü](screenshots/create_card_detail.png) | **Yönetim Paneli - Kart Editörü**: Oyuncu istatistikleri, ülke/kulüp ve rol rozetleri düzenleme. |
+| ![Kart Şablon Galerisi](screenshots/card_texture_1.png) | **Yönetim Paneli - Kart Şablon Galerisi**: EA FC resmi kart dokuları ve şablon kataloğu. |
 | ![Analiz ve İstatistikler](screenshots/squad3.png) | **Ana Sayfa - İstatistik & Analiz Paneli**: Topla oynama oranları, form grafikleri, gol tahminleri ve haftanın yıldızları. |
 | ![Kadro Kurucu Mavi Takım](screenshots/squad_builder1.png) | **Yönetim Paneli - Kadro Kurucu (Mavi Takım)**: Sürükle-bırak ile oyuncu seçimi ve saha dizilişi yönetimi. |
 | ![Kadro Kurucu Kırmızı Takım](screenshots/squad_builder2.png) | **Yönetim Paneli - Kadro Kurucu (Kırmızı Takım)**: Kırmızı takım kadro diziliş ekranı. |
@@ -132,18 +147,19 @@ Aşağıda `screenshots/` klasöründe yer alan uygulama ve yönetim paneli gör
 ## 🇬🇧 ENGLISH DOCUMENTATION
 
 ### 1. Project Purpose & Features
-The 5 Kor Amateur Football League project transforms local amateur matchdays into an interactive, broadcast-quality web experience.
+**PitchCard Squad Builder** transforms amateur football matchdays into an interactive, broadcast-quality web experience.
 
-- **FIFA-Style Player Cards**: Display players with custom stats, OVR ratings, form trends, positions, and specialized role badges.
+- **FIFA-Style Player Cards**: Display players with custom stats, OVR ratings, form trends, positions, and specialized role badges using EA FC style card textures.
 - **Red & Blue Team Lineups & Tactics**: Dynamic pitch layout supporting 3-3-1 formations, team summaries, and substitute player rosters.
-- **Comprehensive Admin Panel (`/admin`)**:
-  - **Player Card Management**: Add/edit players, update stats/positions, and select template cards.
-  - **Squad Builder**: Tactical board for positioning players on the field with drag-and-drop mechanics.
+- **Card Studio & Admin Panel (`/admin`)**:
+  - **Live Card Studio & Studio Selector**: Choose official EA FC card textures (Team of the Week, Flashback, Hall of FUT, etc.) with real-time preview and 2x PNG exporter.
+  - **Attributes & Badges Editor**: Edit player stats (PAC, SHO, PAS, DRI, DEF, PHY), club/league logos, and specialized role badges.
+  - **Squad Builder**: Interactive tactical board for positioning players on the field with drag-and-drop mechanics.
   - **Match & Teams**: Update match location, kickoff times, game format, scores, and league info.
   - **Stars of the Week**: Upload MP4/WebM video clips and poster images for Goal of the Week, Assist of the Week, and Save of the Week.
   - **Analytics & Stats**: Edit total OVR power, possession percentage, predicted goals, form trendlines, and recent 5 matches history.
   - **Tags & Texts**: Custom role badges, card attribute labels, and site footer slogans.
-- **FIFARosters Template Gallery Integration**: Browse and import card templates directly via `GalleryService`.
+- **FIFARosters Template Gallery Integration**: Browse and import 80+ card templates directly via `GalleryService`.
 - **Media Streaming**: Dedicated media endpoint with HTTP Range support for video playbacks.
 
 ---
@@ -164,8 +180,8 @@ The 5 Kor Amateur Football League project transforms local amateur matchdays int
 ### 3. Folder Structure Overview
 
 ```
-FiveKorDotNet/
-├── screenshots/               # Screenshots (UI and Admin Panel)
+pitchcard-squad-builder/
+├── screenshots/               # Screenshots (UI, Card Studio, and Admin Panel)
 ├── tools/                     # Helper tools (import_state.py)
 ├── src/
 │   └── FiveKor.Web/           # Main ASP.NET Core Project
@@ -189,6 +205,12 @@ FiveKorDotNet/
 
 #### Prerequisites
 - [.NET 10.0 SDK](https://dotnet.microsoft.com/download) or Visual Studio 2022+ / JetBrains Rider supporting .NET 10.
+
+#### Repository Clone
+```bash
+git clone https://github.com/Terabithia1572/pitchcard-squad-builder.git
+cd pitchcard-squad-builder
+```
 
 #### Running with Visual Studio
 1. Open `src/FiveKor.Web/FiveKor.Web.csproj` in Visual Studio.
@@ -230,6 +252,9 @@ FiveKorDotNet/
 | Screenshot | Description |
 | --- | --- |
 | ![Matchday Lineups](screenshots/squad4.png) | **Main Page - Matchday & Lineups**: Red & Blue team rosters, cards, and match metadata. |
+| ![Card Studio Live Preview](screenshots/create_card.png) | **Admin Panel - Card Studio**: Card template selection, live card preview, and 2x PNG exporter. |
+| ![Card Attributes Editor](screenshots/create_card_detail.png) | **Admin Panel - Card Attributes Editor**: Stats editor, country/club logos, and role badges selector. |
+| ![Card Template Catalog](screenshots/card_texture_1.png) | **Admin Panel - Card Template Catalog**: EA FC official card textures and template catalog. |
 | ![Analytics Dashboard](screenshots/squad3.png) | **Main Page - Analytics Dashboard**: Possession chart, form trends, goal predictions, and weekly highlights. |
 | ![Squad Builder Blue Team](screenshots/squad_builder1.png) | **Admin Panel - Squad Builder (Blue Team)**: Drag-and-drop tactical squad builder. |
 | ![Squad Builder Red Team](screenshots/squad_builder2.png) | **Admin Panel - Squad Builder (Red Team)**: Red team formation setup screen. |
